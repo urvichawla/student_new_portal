@@ -6,7 +6,7 @@ import Profile from './pages/Profile';
 import ProfileStatus from './pages/ProfileStatus';
 import Signup from './pages/Signup';
 import AllStudents from './pages/AllStudents';
-import AnimatedSquaresBackground from './components/AnimatedSquaresBackground';
+
 import { SquaresDemo } from "./components/SquaresDemo";
 
 function Landing() {
