@@ -1,0 +1,9 @@
+{
+"style": "default",
+"rsc": false,
+    "tsx": false,
+    "app": "src",
+    "path": "src/components/ui",
+    "tailwind":"true"
+ }
+ 
