@@ -26,7 +26,7 @@ router.get('/google/callback', passport.authenticate('google', { session: false,
     // Successful authentication, issue JWT
     const token = jwt.sign({ id: req.user._id, email: req.user.email }, process.env.JWT_SECRET, { expiresIn: '1d' });
     // Redirect to frontend with token (or send as JSON)
-    res.redirect(`http://localhost:3000/profile?token=${token}`);
+    res.redirect(`https://student-new-portal.vercel.app/profile?token=${token}`);
   }
 );
 
