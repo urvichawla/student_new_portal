@@ -10,6 +10,8 @@ const SignIn2 = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:5000/api';
+
   // Only allow @gmail.com emails
   const validateEmail = (email: string) => {
     return /^[^@\s]+@gmail\.com$/.test(email);
@@ -27,7 +29,7 @@ const SignIn2 = () => {
     setError("");
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${API_BASE}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -117,7 +119,7 @@ const SignIn2 = () => {
         </div>
         <div className="flex gap-3 w-full justify-center mt-2">
           <a
-            href="http://localhost:5000/api/auth/google"
+            href={`${API_BASE}/auth/google`}
             className="flex items-center justify-center w-12 h-12 rounded-xl border bg-white hover:bg-gray-100 transition grow"
           >
             <img
