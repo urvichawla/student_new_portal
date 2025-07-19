@@ -266,7 +266,7 @@ const amountInputRef = useRef<HTMLInputElement | null>(null);
                 {editMode && (
                   <button
                     type="button"
-                    className="w-full bg-white/5 text-white font-medium h-10 rounded-lg border border-white/10 hover:border-white/20 flex items-center justify-center mt-5"
+                    className="w-full bg-transparent text-white font-medium h-10 rounded-lg border border-white hover:bg-white/10 flex items-center justify-center mt-5 transition"
                     onClick={handleCancel}
                   >
                     Cancel
@@ -354,7 +354,7 @@ const amountInputRef = useRef<HTMLInputElement | null>(null);
                   </button>
                   <button
                     type="button"
-                    className="w-full bg-white/5 text-white font-medium h-10 rounded-lg border border-white/10 hover:border-white/20 flex items-center justify-center mt-5"
+                    className="w-full bg-transparent text-white font-medium h-10 rounded-lg border border-white hover:bg-white/10 flex items-center justify-center mt-5 transition"
                     onClick={() => setShowPayment(false)}
                   >
                     Cancel
