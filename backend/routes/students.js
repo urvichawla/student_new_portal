@@ -89,7 +89,7 @@ router.get('/me-test', async (req, res) => {
 // --- /me routes END ---
 
 // Get all students (protected)
-router.get('/', authMiddleware, async (req, res) => {
+router.get('/',  async (req, res) => {
   try {
   
     const students = await Student.find({}, '-password');
@@ -103,6 +103,11 @@ router.get('/', authMiddleware, async (req, res) => {
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
+    // Check if email already exists
+    const existing = await Student.findOne({ email });
+    if (existing) {
+      return res.status(400).json({ error: 'Email already exists' });
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
     const student = new Student({ name, email, password: hashedPassword });
     await student.save();
@@ -111,7 +116,6 @@ router.post('/register', async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
-
 // Login (handled in /api/auth/login)
 
 // Get profile by ID (protected)
@@ -125,7 +129,7 @@ router.get('/:id', authMiddleware, async (req, res) => {
   }
 });
 
-// Update profile (protected)
+
 router.put('/:id', authMiddleware, async (req, res) => {
   try {
     const { name, email } = req.body;
