@@ -64,37 +64,37 @@ export default function AllStudentsTable() {
 
   return (
     <div className="overflow-x-auto w-full">
-      <table className="min-w-full border border-gray-200 bg-white rounded-xl shadow">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="px-4 py-2 text-left">Name</th>
-            <th className="px-4 py-2 text-left">Email</th>
-            <th className="px-4 py-2 text-left">Fees Paid</th>
+    <table className="min-w-full border border-gray-700 bg-black rounded-xl shadow text-white">
+      <thead>
+        <tr className="bg-gray-900">
+          <th className="px-4 py-2 text-left">Name</th>
+          <th className="px-4 py-2 text-left">Email</th>
+          <th className="px-4 py-2 text-left">Fees Paid</th>
+        </tr>
+      </thead>
+      <tbody>
+        {students.map(student => (
+          <tr
+            key={student._id}
+            className={
+              currentUserEmail === student.email
+                ? "bg-blue-900 font-semibold"
+                : ""
+            }
+          >
+            <td className="px-4 py-2 border-t border-gray-700">{student.name}</td>
+            <td className="px-4 py-2 border-t border-gray-700">{student.email}</td>
+            <td className="px-4 py-2 border-t border-gray-700">
+              {student.feesPaid ? (
+                <span className="text-green-400 font-bold">Yes</span>
+              ) : (
+                <span className="text-red-400 font-bold">No</span>
+              )}
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {students.map(student => (
-            <tr
-              key={student._id}
-              className={
-                currentUserEmail === student.email
-                  ? "bg-blue-50 font-semibold"
-                  : ""
-              }
-            >
-              <td className="px-4 py-2 border-t">{student.name}</td>
-              <td className="px-4 py-2 border-t">{student.email}</td>
-              <td className="px-4 py-2 border-t">
-                {student.feesPaid ? (
-                  <span className="text-green-600 font-bold">Yes</span>
-                ) : (
-                  <span className="text-red-500 font-bold">No</span>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
+  </div>
   );
 } 
