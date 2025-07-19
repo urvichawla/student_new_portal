@@ -10,6 +10,7 @@ interface Student {
   email: string;
   feesPaid: boolean;
 }
+//trigger redeploy
 
 export default function AllStudentsTable() {
   const [students, setStudents] = useState<Student[]>([]);
