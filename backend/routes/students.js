@@ -74,18 +74,7 @@ router.post('/me/pay', authMiddleware, async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
-router.get('/me-test', async (req, res) => {
-  console.log('=== /me-test route hit ===');
-  const email = 'urviii48@gmail.com';
-  try {
-    const student = await Student.findOne({ email });
-    console.log('Test fetch by email:', student);
-    res.json(student || { error: 'Not found' });
-  } catch (err) {
-    console.error('Error in /me-test:', err);
-    res.status(500).json({ error: err.message });
-  }
-});
+
 // --- /me routes END ---
 
 // Get all students (protected)

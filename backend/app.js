@@ -16,7 +16,7 @@ const studentsRouter = require('./routes/students');
 
 app.use(passport.initialize());
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001','https://student-new-portal.vercel.app'],
+  origin: ['http://localhost:3000', 'http://localhost:3001','https://student-new-portal.vercel.app','https://student-new-portal-m2tm5v2wy-urvi-chawlas-projects.vercel.app'],
   credentials: true
 }));
 app.use(logger('dev'));
