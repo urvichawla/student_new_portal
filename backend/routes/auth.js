@@ -11,7 +11,7 @@ router.get('/test', (req, res) => res.send('Auth test route works!'));
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   const user = await Student.findOne({ email });
-  if (!user) return res.status(400).json({ error: 'Invalid credentials' });
+  if (!user) return res.status(400).json({ error: 'User does not exist. Please sign up first.' });
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) return res.status(400).json({ error: 'Invalid credentials' });
   const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1d' });
