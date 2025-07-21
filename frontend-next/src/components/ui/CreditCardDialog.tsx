@@ -45,7 +45,7 @@ export function CreditCardDialog({ open, onClose, onPay, loading }: {
         >
           ×
         </button>
-        <h2 className="text-xl font-bold mb-2">Pay Fees</h2>
+        <h2 className="text-xl font-bold mb-2 text-neutral-900 drop-shadow-sm">Pay Fees</h2>
         <p className="text-gray-500 mb-4 text-sm">Enter your credit card details to pay your fees.</p>
         {error && <div className="text-red-500 mb-2 text-sm">{error}</div>}
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
